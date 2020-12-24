@@ -15,6 +15,10 @@ import com.sr.myapplication.adapter.CardListAdapter
 import com.sr.myapplication.databinding.FragmentListCardBinding
 import com.sr.myapplication.model.DataRepoModel
 import com.sr.myapplication.viewmodel.CardsListViewModel
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 class CardListFragment : Fragment() {
     private lateinit var binding: FragmentListCardBinding
@@ -42,8 +46,14 @@ class CardListFragment : Fragment() {
     private fun initBinding() {
         val mViewModel = CardsListViewModel()
         binding.viewModel = mViewModel
-        callApi(mViewModel)
-        observeViewModel(mViewModel)
+
+        // Sample code for Coroutine implementation
+        CoroutineScope(Dispatchers.IO).launch {
+            callApi(mViewModel)
+            withContext(Dispatchers.Main) {
+            observeViewModel(mViewModel)
+            }
+        }
     }
 
     private fun callApi(mViewModel: CardsListViewModel) {
