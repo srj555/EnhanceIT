@@ -50,6 +50,11 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
 
+    testImplementation 'org.mockito:mockito-core:2.7.22'
+    testImplementation 'org.mockito:mockito-inline:2.7.22'
+    testImplementation 'androidx.arch.core:core-testing:2.0.0'
+    testImplementation 'com.squareup.okhttp3:mockwebserver:3.13.1'
+
     // retrofit
     implementation 'com.squareup.retrofit2:retrofit:2.1.0'
     implementation 'com.squareup.retrofit2:converter-gson:2.1.0'
@@ -63,4 +68,10 @@ dependencies {
     implementation "com.google.dagger:dagger-android-support:$daggerVer"
     kapt "com.google.dagger:dagger-android-processor:$daggerVer"
     kapt "com.google.dagger:dagger-compiler:$daggerVer"
+
+    // cooroutines
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.3.9'
+    // ktx
+    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.2.0'
+
 }
